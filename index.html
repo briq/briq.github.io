@@ -11,9 +11,10 @@
 <body>
     <div class="container">
         <h1>Briq API</h1>
-        <p class="sw-info">Base URL: <span class="sw-info-basePath">https://www.givebriq.com/v0</span>, Version: <span class="sw-info-version">0.0.1</span></p>
+        <p class="sw-info">Base URL: <span class="sw-info-basePath">https://www.givebriq.com/v0</span>, Version: <span class="sw-info-version">v0</span></p>
         <p></p>
         <p>Power up your team with peer recognition</p>
+        <p>This is the detailed technical documentation of the <a href="https://www.givebriq.com/build">Briq API</a>.</p>
         <p></p>
 
         <div id="sw-default-consumes" class="sw-default-value">
@@ -110,7 +111,7 @@
 
         <div id="security-definition-briqAuth" class="panel panel-security-definition panel-security-definition-basic">
             <div class="panel-heading">
-                <h3 class="panel-title"><span class="security-name">briqAuth</span></h3>
+                <h3 class="panel-title"><span class="security-name">Authentication</span></h3>
                 Type: basic
             </div>
             <div class="panel-body">
@@ -120,11 +121,13 @@
                         <dd class="security-property-type">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p></p>
-                                    <p>To authenticate with Briq API, you will need the API key secret provided from the dashboard
-                                        (accessToken). You have to use http basic access authentication. Your key has to
-                                        be set as the username. A password is not required for simplicity.</p>
-                                    <p></p>
+                                    <p>To authenticate with Briq API, you will need the API token provided for your custom integration.
+                                        Get it from your <a href="https://www.givebriq.com/app/admin/apps">Briq admin section</a>.
+                                    <p>
+                                        You have to use HTTP basic access authentication. Use your access token as the username
+                                        and leave the password field empty. Don't forget that Basic auth credentials have to be 
+                                        Base64 encoded (This is handled for you if you use our <a href="https://github.com/briq/briq-api-node">API client</a>)
+                                    </p>
                                 </div>
                             </div>
                         </dd>
