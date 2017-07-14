@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="main.css">
+
+    <title>Briq API</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Briq API</h1>
+        <p class="sw-info">Base URL: <span class="sw-info-basePath">https://www.givebriq.com/v0</span>, Version: <span class="sw-info-version">0.0.1</span></p>
+        <p></p>
+        <p>Power up your team with peer recognition</p>
+        <p></p>
+
+        <div id="sw-default-consumes" class="sw-default-value">
+            <span class="sw-default-value-header">Default request content-types:</span> application/json
+        </div>
+        <div id="sw-default-produces" class="sw-default-value">
+            <span class="sw-default-value-header">Default response content-types:</span> application/json
+        </div>
+
+        <div id="sw-schemes" class="sw-default-value">
+            <span class="sw-default-value-header">Schemes:</span> https
+        </div>
+
+
+        <h2 id="swagger--summary-tags">Summary</h2>
+        <h3 id="tag-Organizations" class="swagger-summary-tag">Tag: Organizations</h3>
+
+        <table class="table table-bordered table-condensed swagger--summary">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#operation--organizations--key--get">GET /organizations/{key}</a></td>
+                    <td>
+                        <p>Get an organization</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="tag-Users" class="swagger-summary-tag">Tag: Users</h3>
+
+
+        <table class="table table-bordered table-condensed swagger--summary">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#operation--organizations--key--users-get">GET /organizations/{key}/users</a></td>
+                    <td>
+                        <p>List the users of an organization</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="tag-Transactions" class="swagger-summary-tag">Tag: Transactions</h3>
+
+
+        <table class="table table-bordered table-condensed swagger--summary">
+            <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#operation--organizations--key--transactions-get">GET /organizations/{key}/transactions</a></td>
+                    <td>
+                        <p>List the transactions of an organization</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#operation--organizations--key--transactions-post">POST /organizations/{key}/transactions</a></td>
+                    <td>
+                        <p>Create a transaction in the organization</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#operation--organizations--key--transactions--id--get">GET /organizations/{key}/transactions/{id}</a></td>
+                    <td>
+                        <p>Get the details of a transaction</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="#operation--organizations--key--transactions--id--delete">DELETE /organizations/{key}/transactions/{id}</a></td>
+                    <td>
+                        <p>Delete a transaction and reverts its effects</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2>Security</h2>
+
+        <div id="security-definition-briqAuth" class="panel panel-security-definition panel-security-definition-basic">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="security-name">briqAuth</span></h3>
+                Type: basic
+            </div>
+            <div class="panel-body">
+                <section class="sw-security-properties">
+                    <dl>
+                        <dt class="security-property-name">Description:</dt>
+                        <dd class="security-property-type">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p></p>
+                                    <p>To authenticate with Briq API, you will need the API key secret provided from the dashboard
+                                        (accessToken). You have to use http basic access authentication. Your key has to
+                                        be set as the username. A password is not required for simplicity.</p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+        <h2>Paths</h2>
+
+
+        <span id="path--organizations--key-"></span>
+        <div id="operation--organizations--key--get" class="swagger--panel-operation-get panel">
+            <div class="panel-heading">
+                <div class="operation-summary">Get an organization</div>
+                <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/organizations/{key}</strong></h3>
+                Tags:
+                <a href="#tag-Organizations">Organizations</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+                    <p>Returns an Organization based on its key</p>
+
+                </section>
+
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>An object representing the organization</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                    <div class="panel panel-definition">
+                                        <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/Organization">Organization</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+                        <dt class="sw-response-default">
+                            default
+
+                        </dt>
+                        <dd class="sw-response-default">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Unexpected error</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                    <div class="panel panel-definition">
+                                        <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/Error">Error</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <span id="path--organizations--key--transactions"></span>
+        <div id="operation--organizations--key--transactions-get" class="swagger--panel-operation-get panel">
+            <div class="panel-heading">
+                <div class="operation-summary">List the transactions of an organization</div>
+                <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/organizations/{key}/transactions</strong></h3>
+                Tags:
+                <a href="#tag-Transactions">Transactions</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+
+                </section>
+
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>An array of transactions</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                    <div class="panel panel-definition">
+                                        <div class="panel-body">
+
+                                            <section class="json-schema-array-items">
+
+                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/Transaction">Transaction</a>
+                                                                                </span>
+                                                <span class="json-property-range" title="Value limits"></span>
+
+                                                <div class="json-inner-schema">
+
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div id="operation--organizations--key--transactions-post" class="swagger--panel-operation-post panel">
+            <div class="panel-heading">
+                <div class="operation-summary">Create a transaction in the organization</div>
+                <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/organizations/{key}/transactions</strong></h3>
+                Tags:
+                <a href="#tag-Transactions">Transactions</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+
+                </section>
+
+                <section class="sw-request-body">
+
+                    <p><a href="#sw-default-consumes">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p></p>
+                            <p>The transaction to create</p>
+                            <p></p>
+                        </div>
+                        <div class="col-md-6 sw-request-model">
+                            <div class="panel panel-definition">
+                                <div class="panel-body">
+                                    <a class="json-schema-ref" href="#/definitions/Transaction">Transaction</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-201">
+                            201 Created
+
+                        </dt>
+                        <dd class="sw-response-201">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>The transaction was created</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <section class="sw-response-headers">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="sw-response-header-name"></th>
+                                                    <th class="sw-response-header-description"></th>
+                                                    <th class="sw-response-header-data-type"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="sw-response-header-Location">
+                                                    <td>
+                                                        Location
+                                                    </td>
+                                                    <td>
+                                                        <p>The URL at which the created transaction can be found</p>
+                                                    </td>
+                                                    <td>
+
+                                                        <span class="json-property-type">string</span>
+                                                        <span class="json-property-range" title="Value limits"></span>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </section>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <span id="path--organizations--key--transactions--id-"></span>
+        <div id="operation--organizations--key--transactions--id--delete" class="swagger--panel-operation-delete panel">
+            <div class="panel-heading">
+                <div class="operation-summary">Delete a transaction and reverts its effects</div>
+                <h3 class="panel-title"><span class="operation-name">DELETE</span> <strong>/organizations/{key}/transactions/{id}</strong></h3>
+                Tags:
+                <a href="#tag-Transactions">Transactions</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+
+                </section>
+
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    id
+                                </td>
+                                <td>
+                                    <p>The id of the transaction</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-204">
+                            204 No Content
+
+                        </dt>
+                        <dd class="sw-response-204">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>The transaction was deleted</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                </div>
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div id="operation--organizations--key--transactions--id--get" class="swagger--panel-operation-get panel">
+            <div class="panel-heading">
+                <div class="operation-summary">Get the details of a transaction</div>
+                <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/organizations/{key}/transactions/{id}</strong></h3>
+                Tags:
+                <a href="#tag-Transactions">Transactions</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+
+                </section>
+
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    id
+                                </td>
+                                <td>
+                                    <p>The id of the transaction</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>The details of the transaction</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                    <div class="panel panel-definition">
+                                        <div class="panel-body">
+                                            <a class="json-schema-ref" href="#/definitions/Transaction">Transaction</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <span id="path--organizations--key--users"></span>
+        <div id="operation--organizations--key--users-get" class="swagger--panel-operation-get panel">
+            <div class="panel-heading">
+                <div class="operation-summary">List the users of an organization</div>
+                <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/organizations/{key}/users</strong></h3>
+                Tags:
+                <a href="#tag-Users">Users</a>
+            </div>
+            <div class="panel-body">
+                <section class="sw-operation-description">
+
+                </section>
+
+                <section class="sw-request-params">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="sw-param-name"></th>
+                                <th class="sw-param-description"></th>
+                                <th class="sw-param-type"></th>
+                                <th class="sw-param-data-type"></th>
+                                <th class="sw-param-annotation"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    key
+                                </td>
+                                <td>
+                                    <p>The key of the Organization to get</p>
+                                </td>
+                                <td>path</td>
+                                <td>
+                                    <span class="json-property-type">string</span>
+                                    <span class="json-property-range" title="Value limits"></span>
+
+                                </td>
+                                <td>
+                                    <span class="json-property-required"></span>
+                                    <span class="swagger--global"></span> <span class="json-schema--reference"><a href="#/parameters/OrganizationKey">#/parameters/OrganizationKey</a></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="sw-responses">
+                    <p><a href="#sw-default-produces">Uses default content-types: </a>
+                        <span class="label label-default">application/json</span>
+                    </p>
+
+                    <dl>
+                        <dt class="sw-response-200">
+                            200 OK
+
+                        </dt>
+                        <dd class="sw-response-200">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>An array of users</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6 sw-response-model">
+                                    <div class="panel panel-definition">
+                                        <div class="panel-body">
+
+                                            <section class="json-schema-array-items">
+
+                                                <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/User">User</a>
+                                                                                </span>
+                                                <span class="json-property-range" title="Value limits"></span>
+
+                                                <div class="json-inner-schema">
+
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <h2>Parameter definitions</h2>
+        <table id="table-parameter-definitions" class="table">
+            <thead>
+                <tr>
+                    <th class="sw-param-key"></th>
+                    <th class="sw-param-name"></th>
+                    <th class="sw-param-description"></th>
+                    <th class="sw-param-type"></th>
+                    <th class="sw-param-data-type"></th>
+                    <th class="sw-param-annotation"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a name="/parameters/PaginationPage"></a>PaginationPage</td>
+                    <td>
+                        page
+                    </td>
+                    <td>
+                        <p>The page to load in case the results are paginated</p>
+                    </td>
+                    <td>query</td>
+                    <td>
+                        <span class="json-property-type">integer</span>
+                        <span class="json-property-range" title="Value limits"></span>
+
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a name="/parameters/PaginationPerPage"></a>PaginationPerPage</td>
+                    <td>
+                        per_page
+                    </td>
+                    <td>
+                        <p>The number of results to load on page in case the results are paginated</p>
+                    </td>
+                    <td>query</td>
+                    <td>
+                        <span class="json-property-type">integer</span>
+                        <span class="json-property-range" title="Value limits"></span>
+
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a name="/parameters/OrganizationKey"></a>OrganizationKey</td>
+                    <td>
+                        key
+                    </td>
+                    <td>
+                        <p>The key of the Organization to get</p>
+                    </td>
+                    <td>path</td>
+                    <td>
+                        <span class="json-property-type">string</span>
+                        <span class="json-property-range" title="Value limits"></span>
+
+                    </td>
+                    <td>
+                        <span class="json-property-required"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <h2>Schema definitions</h2>
+
+
+        <div id="definition-Error" class="panel panel-definition">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a name="/definitions/Error"></a>Error:
+                    <span class="json-property-type">
+                <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+
+                <section class="json-schema-properties">
+                    <dl>
+                        <dt data-property-name="code">
+                            <span class="json-property-name">code:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="message">
+                            <span class="json-property-name">message:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="fields">
+                            <span class="json-property-name">fields:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div id="definition-Organization" class="panel panel-definition">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a name="/definitions/Organization"></a>Organization:
+                    <span class="json-property-type">
+                <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <section class="json-schema-example">
+                    <pre><code class="lang-json">{<br>    "<span class="hljs-attribute">externalRef</span>": <span class="hljs-value"><span class="hljs-string">"T000001"</span></span>,<br>    "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"a-team"</span></span>,<br>    "<span class="hljs-attribute">platform</span>": <span class="hljs-value"><span class="hljs-string">"slack"</span></span>,<br>    "<span class="hljs-attribute">settingsMaxGiftBriqs</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,<br>    "<span class="hljs-attribute">settingsMaxInactiveBriqs</span>": <span class="hljs-value"><span class="hljs-number">42</span></span>,<br>    "<span class="hljs-attribute">settingsNewDailyBriqs</span>": <span class="hljs-value"><span class="hljs-number">6</span><br></span>}
+                            </code></pre>
+
+                </section>
+
+                <section class="json-schema-properties">
+                    <dl>
+                        <dt data-property-name="key">
+                            <span class="json-property-name">key:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>A unique human-readable name for the organization. Serves as subdomain.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="externalRef">
+                            <span class="json-property-name">externalRef:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>The id of this organization in the <code>platform</code></p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="platform">
+                            <span class="json-property-name">platform:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>The platform through which this organization interacts with Briq.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="settingsNewDailyBriqs">
+                            <span class="json-property-name">settingsNewDailyBriqs:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The number of new inactive Briqs given to user every day.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="settingsMaxGiftBriqs">
+                            <span class="json-property-name">settingsMaxGiftBriqs:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The maximum number of Briqs a user can give another user in one transaction.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="settingsMaxInactiveBriqs">
+                            <span class="json-property-name">settingsMaxInactiveBriqs:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The maximum number of inactive Briqs a user can have.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div id="definition-Transaction" class="panel panel-definition">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a name="/definitions/Transaction"></a>Transaction:
+                    <span class="json-property-type">
+                <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <section class="json-schema-example">
+                    <pre><code class="lang-json">{<br>    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,<br>    "<span class="hljs-attribute">app</span>": <span class="hljs-value"><span class="hljs-string">"give"</span></span>,<br>    "<span class="hljs-attribute">comment</span>": <span class="hljs-value"><span class="hljs-string">"I love it when a plan comes together"</span></span>,<br>    "<span class="hljs-attribute">from</span>": <span class="hljs-value"><span class="hljs-string">"hannibal"</span></span>,<br>    "<span class="hljs-attribute">to</span>": <span class="hljs-value"><span class="hljs-string">"faceman"</span><br></span>}
+                            </code></pre>
+
+                </section>
+
+                <section class="json-schema-properties">
+                    <dl>
+                        <dt data-property-name="amount">
+                            <span class="json-property-name">amount:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>The amount of the transaction</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="app">
+                            <span class="json-property-name">app:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>An identifier for the app that created the transaction</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="from">
+                            <span class="json-property-name">from:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The name of the user who initiated the transaction</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="to">
+                            <span class="json-property-name">to:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The name of the user who is the recipient of the transaction</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="comment">
+                            <span class="json-property-name">comment:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>An optional comment accompanying the transaction</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div id="definition-User" class="panel panel-definition">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a name="/definitions/User"></a>User:
+                    <span class="json-property-type">
+                <span class="json-property-type">object</span>
+                    <span class="json-property-range" title="Value limits"></span>
+
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <section class="json-schema-example">
+                    <pre><code class="lang-json">{<br>    "<span class="hljs-attribute">activeBalance</span>": <span class="hljs-value"><span class="hljs-number">421</span></span>,<br>    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"hannibal@the-a-team.com"</span></span>,<br>    "<span class="hljs-attribute">externalRef</span>": <span class="hljs-value"><span class="hljs-string">"U0000001"</span></span>,<br>    "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"John"</span></span>,<br>    "<span class="hljs-attribute">inactiveBalance</span>": <span class="hljs-value"><span class="hljs-number">23</span></span>,<br>    "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"Smith"</span></span>,<br>    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"hannibal"</span><br></span>}
+                            </code></pre>
+
+                </section>
+
+                <section class="json-schema-properties">
+                    <dl>
+                        <dt data-property-name="username">
+                            <span class="json-property-name">username:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>The name of the user. Must be unique per organization.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="firstName">
+                            <span class="json-property-name">firstName:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The first name of the user.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="lastName">
+                            <span class="json-property-name">lastName:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The last name of the user.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="email">
+                            <span class="json-property-name">email:</span>
+
+                            <span class="json-property-type">string</span> <span class="json-property-format">(email)</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-required"></span>
+                        </dt>
+                        <dd>
+                            <p>The email adress of the user.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="activeBalance">
+                            <span class="json-property-name">activeBalance:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                        </dt>
+                        <dd>
+                            <p>The number of briqs the user can spend.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="inactiveBalance">
+                            <span class="json-property-name">inactiveBalance:</span>
+
+                            <span class="json-property-type">integer</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-read-only"></span>
+                        </dt>
+                        <dd>
+                            <p>The number of briqs the user can give to other users.</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                        <dt data-property-name="externalRef">
+                            <span class="json-property-name">externalRef:</span>
+
+                            <span class="json-property-type">string</span>
+                            <span class="json-property-range" title="Value limits"></span>
+
+                            <span class="json-property-read-only"></span>
+                        </dt>
+                        <dd>
+                            <p>An identifier for the user in the external system where users are stored (see <code>Organization#platform</code>)</p>
+
+                            <div class="json-inner-schema">
+
+                            </div>
+                        </dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
