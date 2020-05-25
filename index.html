@@ -305,7 +305,7 @@ Briq lets you send Briqs to teammates, small tokens of appreciation to say thank
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c">#Pass the token as the username in a Basic HTTP Authorization header</span>
-curl -u briq_api_token: https://www.givebriq.com/v0/organizations/your-organization
+curl -u briq_api_token: https://api.givebriq.com/v0/organizations/your-organization
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>briq_api_token</code> with your API key.</p>
@@ -324,12 +324,12 @@ curl -u briq_api_token: https://www.givebriq.com/v0/organizations/your-organizat
 <h1 id='pagination'>Pagination</h1><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">users</span><span class="p">({</span> <span class="na">per_page</span><span class="p">:</span> <span class="mi">1</span> <span class="p">});</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -i -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/users?per_page=1"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -i -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/users?per_page=1"</span>
 </code></pre>
 <blockquote>
 <p>The response will include the appropriate <code>Link</code> HTTP headers if needed</p>
 </blockquote>
-<pre class="highlight plaintext"><code>Link: &lt;http://briq.localhost:3000/v0/organizations/your-organization/users?page=2&amp;per_page=1&gt;; rel="next", &lt;http://briq.localhost:3000/v0/organizations/your-organization/users?page=2&amp;per_page=1&gt;; rel="last"
+<pre class="highlight plaintext"><code>Link: &lt;https://api.givebriq.com/v0/organizations/your-organization/users?page=2&amp;per_page=1&gt;; rel="next", &lt;https://api.givebriq.com/v0/organizations/your-organization/users?page=2&amp;per_page=1&gt;; rel="last"
 </code></pre>
 <p>Endpoints that return arrays of results are paginated. <code>first</code>, <code>previous</code>, <code>next</code> and <code>last</code> pages are added as <code>Link</code> HTTP headers
 if needed.</p>
@@ -355,7 +355,7 @@ if needed.</p>
 <h1 id='organization'>Organization</h1><h2 id='get-details-of-your-organization'>Get details of your organization</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">organization</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">info</span><span class="p">();</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization"</span>
 </code></pre>
 <blockquote>
 <p>Replace <code>your-organization</code> with the name of your organization (find it in <a href="https://www.givebriq.com/app/admin/">your Briq settings</a>).
@@ -369,7 +369,7 @@ The above command will resolve to a JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint retrieves information about the current organization.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -385,7 +385,7 @@ The above command will resolve to a JSON structured like this:</p>
 <h1 id='users'>Users</h1><h2 id='list-all-users-of-organization'>List all users of organization</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">users</span><span class="p">();</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/users"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/users"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -423,7 +423,7 @@ The above command will resolve to a JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint lists all the users of the organization (<a href="#pagination">paginated</a>).</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/users</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/users</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -441,7 +441,7 @@ The above command will resolve to a JSON structured like this:</p>
 <h2 id='get-details-of-a-user'>Get details of a user</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">user</span><span class="p">(</span><span class="s1">'user-id'</span><span class="p">);</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/users/user-id"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/users/user-id"</span>
 </code></pre>
 <blockquote>
 <p>Replace <code>user-id</code> with the id of the user
@@ -469,7 +469,7 @@ The above command returns JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint retrieves the details of a user.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/users/&lt;user_id&gt;</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/users/&lt;user_id&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -567,7 +567,7 @@ The above command returns JSON structured like this:</p>
 <h1 id='user-groups'>User Groups</h1><h2 id='list-existing-user-groups'>List existing User Groups</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">groups</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">groups</span><span class="p">();</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/groups"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/groups"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -624,7 +624,7 @@ The above command returns JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint lists all the user groups of the organization (<a href="#pagination">paginated</a>)</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/groups</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/groups</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -642,7 +642,7 @@ The above command returns JSON structured like this:</p>
 <h2 id='get-details-of-a-user-group'>Get details of a User Group</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">group</span><span class="p">(</span><span class="s1">'group-id'</span><span class="p">);</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/groups/group-id"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/groups/group-id"</span>
 </code></pre>
 <blockquote>
 <p>Replace group-id by the id of the group of which you&#39;re getting the details
@@ -698,7 +698,7 @@ The above command returns JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint returns the details for one user groups of the organization.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/groups/&lt;group_id&gt;</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/groups/&lt;group_id&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -752,7 +752,7 @@ The above command returns JSON structured like this:</p>
 <h1 id='transactions'>Transactions</h1><h2 id='list-transactions'>List transactions</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">transactions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">transactions</span><span class="p">();</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/transactions"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/transactions"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -775,7 +775,7 @@ The above command returns JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint lists all the transactions of the organization (<a href="#pagination">paginated</a>)</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -793,7 +793,7 @@ The above command returns JSON structured like this:</p>
 <h2 id='get-details-of-a-transaction'>Get details of a transaction</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">transaction</span><span class="p">(</span><span class="s1">'transaction-id'</span><span class="p">);</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/transactions/transaction-id"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -u briq_api_token <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/transactions/transaction-id"</span>
 </code></pre>
 <blockquote>
 <p>Replace <code>transaction-id</code> with the id of the transaction
@@ -853,7 +853,7 @@ The above command returns JSON structured like this:</p>
 </span></code></pre>
 <p>This endpoint retrieves the details of a transaction.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions/&lt;transaction_id&gt;</code></p>
+<p><code>GET https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions/&lt;transaction_id&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -944,7 +944,7 @@ The above command returns JSON structured like this:</p>
   --header <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --request POST <span class="se">\</span>
   --data <span class="s1">'{ "amount": 2, "comment": "Thanks for your help with the presentation #teamspirit", "from": "alice", "to": "laurent" }'</span> <span class="se">\</span>
-  <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/transactions"</span>
+  <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/transactions"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns an HTTP <code>201 Created</code> response and includes a <code>Location</code> header with the URL of the created transaction.
@@ -966,7 +966,7 @@ It also includes the created transaction as JSON in the response</p>
 </code></pre>
 <p>This endpoint creates a transaction.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions</code></p>
+<p><code>POST https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1010,7 +1010,7 @@ It also includes the created transaction as JSON in the response</p>
 <h2 id='revert-a-transaction'>Revert a transaction</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">Briq</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'briq-api'</span><span class="p">).</span><span class="nx">Client</span><span class="p">;</span>
 <span class="kr">const</span> <span class="nx">briq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Briq</span><span class="p">(</span><span class="s1">'briq_api_token'</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">briq</span><span class="p">.</span><span class="nx">organization</span><span class="p">(</span><span class="s1">'your-organization'</span><span class="p">).</span><span class="nx">refundTransaction</span><span class="p">(</span><span class="s1">'transaction-id'</span><span class="p">);</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -i -u briq_api_token --request DELETE <span class="s2">"https://www.givebriq.com/v0/organizations/your-organization/transactions/transaction-id"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -i -u briq_api_token --request DELETE <span class="s2">"https://api.givebriq.com/v0/organizations/your-organization/transactions/transaction-id"</span>
 </code></pre>
 <blockquote>
 <p>Replace <code>transaction-id</code> with the id of the transaction
@@ -1019,7 +1019,7 @@ The above command returns an HTTP <code>204 No Content</code> and an empty body 
 
 <p>This endpoint reverts a transaction.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE https://www.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions/&lt;transaction_id&gt;</code></p>
+<p><code>DELETE https://api.givebriq.com/v0/organizations/&lt;organization_name&gt;/transactions/&lt;transaction_id&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
